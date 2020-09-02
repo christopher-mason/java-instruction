@@ -52,10 +52,7 @@ public class StringApp {
 			System.out.println("Continue? (y/n)");
 			choice = sc.next();
 		}
-		
-		
-		
-		
+			
 		System.out.println("Bye!");
 
 	}
