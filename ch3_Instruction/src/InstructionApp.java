@@ -3,6 +3,20 @@ import java.text.NumberFormat;
 
 public class InstructionApp {
 	public static void main(String[] args) {
+		
+		
+		
+		
+		/*double price = 4.95;
+		String inputStr = "5.78";
+		
+		String priceString = Double.toString(price);
+		System.out.println(price);
+		double total = Double.parseDouble(inputStr);
+		System.out.println(inputStr);
+		*/
+		
+		
 		/*int x = 10;
 		
 		int y = x++;

@@ -4,11 +4,11 @@ public class HelloWorldApp {
 
 	public static void main(String[] args) {
 		// System.out.println("Hello, World!");
-		
+		System.out.println("Star Trek Questionairre");
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Is Star Trek better than Star Wars? (y/n)");		
-		String choice = sc.next();
+		String choice = sc.next(); // Gets a 'y' or 'n' entry from console
 		while (choice.equalsIgnoreCase("n")) {
 			System.out.println("That is not correct");
 			System.out.println("Would you like to change your mind? (y/n)");
@@ -20,7 +20,7 @@ public class HelloWorldApp {
 			choice = sc.next();
 		}
 		
-		System.out.println("Bye!");
+		System.out.println("Bye");
 
 	}
 
