@@ -70,20 +70,20 @@ public class InstructionApp {
 //		System.out.println(parseInt);
 		
 //		double x = 10.315;
-//		x = Math.round(x * 100) / 100.0;
+//		x = Math.round(x * 100) /100.0;
 //		
-//		System.out.println(x);
+//		System.out.println((int)x);
 	
 //		double percent = 0.505;
 //		NumberFormat perFormatter = NumberFormat.getPercentInstance();
 //		String formattedPercent = perFormatter.format(percent);
 //		System.out.println(formattedPercent);
 
-//		BigDecimal pi = new BigDecimal(3.1459);
-//		BigDecimal myBD = new BigDecimal(56.0);
-//		myBD = myBD.add(pi);
-//		
-//		System.out.println(myBD);
+		BigDecimal pi = new BigDecimal(3.1459);
+		BigDecimal myBD = new BigDecimal(56.0);
+		myBD = myBD.add(pi);
+		
+		System.out.println(myBD);
 	
 		
 	
