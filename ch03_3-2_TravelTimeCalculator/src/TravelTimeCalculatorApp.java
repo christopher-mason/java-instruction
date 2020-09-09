@@ -14,14 +14,19 @@ public class TravelTimeCalculatorApp {
 		while (choice.equalsIgnoreCase("y")) {
 			System.out.print("Enter miles: ");
 			miles = sc.nextDouble();
+			
 			System.out.print("Enter miles per hour: ");
 			mph = sc.nextDouble();
+			
 			System.out.println("Estimated travel time: ");
 			System.out.println("---------------------");
+			
 			double hours = miles / mph;
 			hours = (int) Math.round(hours * 100) / 100;
-			double minutes = miles % mph;
+			final int MIN_PER_HOUR = 60;
+			double minutes = hours / MIN_PER_HOUR;
 			// minutes = (int) Math.round(minutes * 10) / 10;
+			
 			System.out.println("Hours : "+ hours);
 			System.out.println("Minutes: "+ minutes);
 			System.out.println("Continue? (y/n)");
