@@ -1,53 +1,50 @@
-import java.util.Scanner;
+import java.util.Scanner; 
 import java.math.*;
 
 public class ChangeCalculatorApp {
 
 	public static void main(String[] args) {
+		final int CENTS_PER_QUARTER = 25;
+		final int CENTS_PER_DIME = 10;
+		final int CENTS_PER_NICKEL = 5;
+		
+		
 		System.out.println("Welcome to the Change Calculator");
 		System.out.println();
 		
 		Scanner sc = new Scanner(System.in);
 		
 		String choice = "y";
-		
 		while (choice.equalsIgnoreCase("y")) {
 			System.out.print("Enter number of cents (0-99): ");
-		    double amount = sc.nextDouble();
+		    int cents = sc.nextInt(); //use int cuz we need whole numbers
 		    
-//		    int amountInt = (int) (amount * 100);
-//		    double change = 0;
-	     
-		  /*if(amount >= 25) {
-	        change = (int) amount/.25;
-	        amount = amount % .25;
-		    }
-		  
-		  if(amount >= 10) {
-	        change = (int) amount/.10;
-	        amount = amount % .10;
-		    }
-		  
-		  if(amount >= 5) {
-		        change = (int) amount/.05;
-		        amount = amount % .05;
-		    }
-		  
-		  if(amount >= 1) {
-		        change = (int) amount/.01;
-		        amount = amount % 01;
-		    }
-	    */
-		    System.out.println("Quarters: "+ change);
-		    System.out.println("Dimes: "+ change);
-		    System.out.println("Nickels: "+ change);
-		    System.out.println("Pennies: "+ change);
+		    int numQuarters = cents / 25;
+		    // prepare to use the modulus %
+		    // cents = cents % 25; // or you could write it as 'cents %= 25;' but we are using below as the example
+		    cents %= CENTS_PER_QUARTER;
+		    
+		    int numDimes = cents / CENTS_PER_DIME;
+		    cents %= CENTS_PER_DIME;
+		    
+		    int numNickels = cents / CENTS_PER_NICKEL;
+		    cents %= CENTS_PER_NICKEL;
+		    
+		    int numPennies = cents; // no need to divide by 1 for penny
+		    
+		    System.out.println("Quarters: " + numQuarters);
+		    System.out.println("Dimes: " + numDimes);
+		    System.out.println("Nickel: " + numNickels);
+		    System.out.println("Pennies: " + numPennies);
+		    System.out.println();
 		    
 		    System.out.println("Continue? (y/n)");
-		    choice = sc.next();   
-		
-		}	
+		    choice = sc.next();
+		    
+		}  
+
 			System.out.println("Bye");
 	}
 	
 }
+
