@@ -25,7 +25,7 @@ public class TestScoreApp {
             // accumulate score count and score total
             if (testScore <= 100)
             {
-                scoreCount = scoreCount + 1;
+                scoreCount++;
                 scoreTotal = scoreTotal + testScore;
             }
             else if (testScore != 999)
