@@ -1,40 +1,41 @@
 import java.util.Scanner;
 
 public class ContactListApp {
+	
+	private static void printWelcomeMessage() {
+		System.out.println("Welcome to the Contact List Applicaiton");
+		System.out.println();
+	}
+	
+	private static void printFarewellMessage() {
+		System.out.println("Bye");
+	}
 
 	public static void main(String[] args) {
+		printWelcomeMessage();
+		
 		String choice = "y";
 		while (choice.equalsIgnoreCase("y")) {
 			// get the input from the user
-			String firstName = Console.getString("enter first name");
-			String lastName = Console.getString("enter last name");
-			String email = Console.getString("enter email ");
-//			int phoneNumber = Console.getInt("phoneNumber:     ", 0, 100);
-
-			// test without object params
-			ContactDB contactList = new ContactDB();
-			contactList.setfirstName(firstName);
-			contactList.setlastName(lastName);
-			contactList.setEmail(email);
-//			contactList.setPhoneNumber(phoneNumber);
-
-			// test with object params
-			ContactDB contactListConstructor = new ContactDB(firstName, lastName, email, 0);
-			contactListConstructor.setfirstName(firstName);
-			contactListConstructor.setlastName(lastName);
-			contactListConstructor.setEmail(email);
-
-			System.out.println(contactList.getfirstName());
-			System.out.println(contactList.getlastName());
-			System.out.println(contactList.getEmail());
-
-			System.out.println(contactListConstructor.getfirstName());
-			System.out.println(contactListConstructor.getlastName());
-			System.out.println(contactListConstructor.getEmail());
-//			System.out.println(contactList.getPhoneNumber());
+			String firstName = Console.getString("Enter first name: ");
+			String lastName = Console.getString("Enter last name: ");
+			String email = Console.getString("Enter email: ");
+			String phoneNumber = Console.getString("Enter phone number: ");
+			
+			Contact contact = new Contact();
+			contact.setfirstName(firstName);
+			contact.setlastName(lastName);
+			contact.setEmail(email);
+			contact.setPhoneNumber(phoneNumber);
+			
+			System.out.println(contact.displayContact());
+			System.out.println();
+			
+			choice = Console.getString("Continue? (y/n): ");
+			System.out.println();
 
 		}
-
+		printFarewellMessage();
 	}
 
 }
