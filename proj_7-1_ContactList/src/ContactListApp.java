@@ -22,11 +22,14 @@ public class ContactListApp {
 			String email = Console.getString("Enter email: ");
 			String phoneNumber = Console.getString("Enter phone number: ");
 			
-			Contact contact = new Contact();
-			contact.setfirstName(firstName);
-			contact.setlastName(lastName);
-			contact.setEmail(email);
-			contact.setPhoneNumber(phoneNumber);
+//			Contact contact = new Contact();
+//			contact.setfirstName(firstName);
+//			contact.setlastName(lastName);
+//			contact.setEmail(email);
+//			contact.setPhoneNumber(phoneNumber);
+			
+			// to start using other classes, this is how you bring it in. Note the class name 'Contact' and then we bring in 'new' class
+			Contact contact = new Contact(firstName, lastName, email, phoneNumber); 
 			
 			System.out.println(contact.displayContact());
 			System.out.println();

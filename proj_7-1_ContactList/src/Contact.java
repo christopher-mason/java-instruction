@@ -7,12 +7,20 @@ public class Contact {
 	private String phoneNumber;
 
 	public Contact() {
-		firstName = "";
-		lastName = "";
-		email = "";
-		phoneNumber = "";
+		this("", "", "", "");
+//		firstName = "";
+//		lastName = "";
+//		email = "";
+//		phoneNumber = "";
 	}
 
+	public Contact(String firstName, String lastName, String email, String phoneNumber) {
+		//System.err.println("In the full contructor");
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+	}
 
 	public void setfirstName(String firstName) {
 		this.firstName = firstName;
