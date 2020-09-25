@@ -15,12 +15,12 @@ public class TableOfPowersApp {
 			i = sc.nextInt();
 			double squared = 0;
 			double cubed = 0;
-			for (int p = 0; p < i; p++) {
+			for (int p = 0; p <= i; p++) {
 				squared = Math.pow(p, 2);
 				cubed = Math.pow(p, 3);
 			}
 			System.out.println("Number     Squared     Cubed" + "\n" + 
-							   "==============================");
+							   "======     =======     =======");
 			System.out.println(i + "          " + squared + "         " +cubed);
 			System.out.println("Continue? (y/n)");
 			choice = sc.next();
