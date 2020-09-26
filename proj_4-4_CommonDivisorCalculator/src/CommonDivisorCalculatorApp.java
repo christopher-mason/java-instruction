@@ -8,7 +8,7 @@ public class CommonDivisorCalculatorApp {
 		Scanner sc = new Scanner(System.in);
 		
 		
-		
+		int i = 0;
 
 	}
 
