@@ -28,7 +28,7 @@ public class Person { // if no 'extends' it's an object
 	// Overrides
 	@Override
 	public String toString() {
-		return "Name: " + firstName + "" + lastName;
+		return "Name: " + firstName + " " + lastName;
 	}
 	
 
