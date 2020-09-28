@@ -12,7 +12,7 @@ public class Account implements Depositable, Withdrawable, Balanceable {
 	
 	@Override
 	public double getBalance() {
-		return 0;
+		return balance;
 	}
 	
 	@Override

@@ -21,6 +21,10 @@ public class SavingsAccount extends Account {
 		return monthlyInterestRate;
 	}
 	
+	public double getCalculatedInterest() {
+		return calculatedInterest;
+	}
+	
 	// helpers
 	public void applyMonthlyInterest() {
 		calculatedInterest = balance * monthlyInterestRate / 100.0;
