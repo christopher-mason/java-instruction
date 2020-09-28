@@ -1,6 +1,6 @@
 
 public interface Withdrawable {
 	
-	void withdraw(double amount);
+	void withdraw(double withdrawAmount);
 
 }

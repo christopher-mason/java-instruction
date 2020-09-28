@@ -1,6 +1,6 @@
 
 public interface Depositable {
 	
-	void deposit(double amount);
+	void deposit(double depositAmount);
 
 }
