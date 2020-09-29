@@ -24,19 +24,32 @@ public class AccountBalanceApp {
 			String chkOrSav = Console.getString("Checking or savings? (c/s) ");
 			double amount = Console.getDouble("Amount? ");
 			
-			if (wOrD.equalsIgnoreCase("w")) {
-				if (chkOrSav.equalsIgnoreCase("c")) {
-					withdrawAmount(ca, amount);
-				} else {
-					withdrawAmount(sa, amount);
-				}
+			Account acctToUse;
+			if (chkOrSav.equalsIgnoreCase("c")) {
+				acctToUse = ca;
 			} else {
-				if (chkOrSav.equalsIgnoreCase("c")) {
-					depositAmount(ca, amount);
-				} else {
-					depositAmount(sa, amount);
-				}
+				acctToUse = sa;
 			}
+			
+			if (wOrD.equalsIgnoreCase("w")) {
+				withdrawAmount(acctToUse, amount);
+			} else {
+				depositAmount(acctToUse, amount);
+			}
+			
+//			if (wOrD.equalsIgnoreCase("w")) {
+//				if (chkOrSav.equalsIgnoreCase("c")) {
+//					withdrawAmount(ca, amount);
+//				} else {
+//					withdrawAmount(sa, amount);
+//				}
+//			} else {
+//				if (chkOrSav.equalsIgnoreCase("c")) {
+//					depositAmount(ca, amount);
+//				} else {
+//					depositAmount(sa, amount);
+//				}
+//			}
 			
 			System.out.println();
 			choice = Console.getString("Continue? (y/n)");
