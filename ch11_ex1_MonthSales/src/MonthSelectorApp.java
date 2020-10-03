@@ -11,6 +11,12 @@ public class MonthSelectorApp {
         // get currency formatting
         NumberFormat currency = NumberFormat.getCurrencyInstance();
         
+        String[] monthName = {"January", "Fedbruary", "March", "April", "May", "June",
+        		"July", "August", "September", "October", "November", "December"};
+        
+        String[] monthSales = {"1000", "1500", "1300", "6700", "3200", "6200", "7400",
+        		"9800", "1200", "4300", "8000", "1900"};
+        
         // get one or more months
         String choice = "y";
         while (choice.equalsIgnoreCase("y")) {
