@@ -42,8 +42,8 @@ public class MonthSelectorApp {
         }
         
         double totalSales = 0; //Step 5
-        for (double sales : monthSales) {
-        	totalSales += sales;
+        for () {
+        	
         }
         
         // display the total sales for the year
