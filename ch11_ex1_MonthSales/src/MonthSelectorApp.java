@@ -11,9 +11,11 @@ public class MonthSelectorApp {
         // get currency formatting
         NumberFormat currency = NumberFormat.getCurrencyInstance();
         
-        String[] monthName = {"January", "Fedbruary", "March", "April", "May", "June",
+        // Step 2
+        String[] monthName = {"January", "Fedbruary", "March", "April", "May", "June", 
         		"July", "August", "September", "October", "November", "December"};
         
+        // Step 3
         String[] monthSales = {"1000", "1500", "1300", "6700", "3200", "6200", "7400",
         		"9800", "1200", "4300", "8000", "1900"};
         
@@ -30,16 +32,22 @@ public class MonthSelectorApp {
             }
             
             // get the index number for the month
-            // and display the month name and sales            
-
+            // and display the month name and sales 
+            // Step 4
+            System.out.println("Sales for " + monthName[monthNumber] + ": " + currency.format(monthSales[monthNumber]));
 
             // check if the user wants to continue
             choice = Console.getString("Continue? (y/n): ");
             Console.displayLine();
         }
         
-        // display the total sales for the year
+        double totalSales = 0; //Step 5
+        for (double sales : monthSales) {
+        	totalSales += sales;
+        }
         
+        // display the total sales for the year
+        System.out.println("Total Sales: " + currency.format(totalSales));
         
         Console.displayLine();
     }    
