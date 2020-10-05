@@ -1,3 +1,4 @@
+package mason.app;
 import java.util.Scanner;
 
 public class Console {
