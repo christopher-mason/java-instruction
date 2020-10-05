@@ -17,8 +17,15 @@ public class WizardInventoryApp {
 			choice = Console.getString("Command: ");
 			if (choice.equals("show")) {
 				System.out.println(inventory);
-			} else if (choice.equals("grab")) {
-				System.out.println("Name: " + Console.getString(""));
+			} else if (choice.equalsIgnoreCase("grab")) {
+				if (inventory.size() > 4) {
+					System.out.println("You can't carry any more items. Drop something first.");
+				} else {
+					String addItem = Console.getString("Name: ");
+					inventory.add(addItem);
+					System.out.println(addItem + "was added.");
+				}
+			} else if (choice.equalsIgnoreCase("edit")) {
 				
 			}
 		}
