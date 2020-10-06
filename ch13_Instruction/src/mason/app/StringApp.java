@@ -40,7 +40,7 @@ public class StringApp {
 		System.out.println();
 		
 		String firstNames = "Dave Chris Christina";
-		String[] firstNamesArray = firstNames.split(" ");
+		String[] firstNamesArray = firstNames.split(" "); // the thing you split on goes away. in this case the space went away.
 		System.out.println("firstNamesArray length = " + firstNamesArray.length);
 		for (String f : firstNamesArray) {
 			System.out.println("[" + f + "]");
