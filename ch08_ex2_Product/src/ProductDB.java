@@ -1,4 +1,40 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class ProductDB {
+	
+	public static Product getProductFromMap(String productCode) {
+		Map<String,Product> items = new HashMap<>();
+		
+		Book javaBook = new Book();
+		javaBook.setCode("java");
+		javaBook.setDescription("Murach's Java Programming");
+		javaBook.setPrice(57.50);
+		javaBook.setAuthor("Joel Murach");
+		
+		items.put("java", javaBook);
+		
+		Book jspBook = new Book();
+		jspBook.setCode("jsp");
+		jspBook.setDescription("Murach's JSP Programming");
+		jspBook.setPrice(35.00);
+		jspBook.setAuthor("Joel Murach");
+		
+		items.put("jsp", jspBook);
+		
+		Software netbeans = new Software();
+		netbeans.setCode("netbeans");
+		netbeans.setVersion("8.2");
+		
+		items.put("netbeans", netbeans);
+		
+		Product p = items.get(productCode);
+		
+		System.out.println("Retrieved " + p + " from the map.");
+		
+		return p;
+		
+	}
 
     public static Product getProduct(String productCode) {
         // In a more realistic application, this code would

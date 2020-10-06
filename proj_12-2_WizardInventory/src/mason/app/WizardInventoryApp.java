@@ -17,8 +17,6 @@ public class WizardInventoryApp {
 		inventory.add("wizard hat");
 		inventory.add("cloth shoes");
 		
-		// String choice = "";
-		
 		String command = "go";
 		while (!command.equalsIgnoreCase("exit")) {
 			command = Console.getString("Command: ");
@@ -44,24 +42,6 @@ public class WizardInventoryApp {
 				break;
 			}
 		}
-		
-//		while (!choice.equalsIgnoreCase("exit")) {
-//			displayMenu();
-//			choice = Console.getString("Command: ");
-//			if (choice.equals("show")) {
-//				System.out.println(inventory);
-//			} else if (choice.equalsIgnoreCase("grab")) {
-//				if (inventory.size() > 4) {
-//					System.out.println("You can't carry any more items. Drop something first.");
-//				} else {
-//					String addItem = Console.getString("Name: ");
-//					inventory.add(addItem);
-//					System.out.println(addItem + "was added.");
-//				}
-//			} else if (choice.equalsIgnoreCase("edit")) {
-//				
-//			}
-//		}
 
 	}
 	
@@ -74,7 +54,7 @@ public class WizardInventoryApp {
 		System.out.println("exit - Exit program");
 	}
 	
-	private static void showInventory(List<String> inventory) {
+	private static void showInventory(List<String> inventory) { // cant call it ArrayList cuz it hurts later if later we change to linked list
 		int oneBasedIndex = 1;
 		
 		for (String item : inventory) {
@@ -123,3 +103,21 @@ public class WizardInventoryApp {
 	}
 
 }
+
+//while (!choice.equalsIgnoreCase("exit")) {
+//displayMenu();
+//choice = Console.getString("Command: ");
+//if (choice.equals("show")) {
+//	System.out.println(inventory);
+//} else if (choice.equalsIgnoreCase("grab")) {
+//	if (inventory.size() > 4) {
+//		System.out.println("You can't carry any more items. Drop something first.");
+//	} else {
+//		String addItem = Console.getString("Name: ");
+//		inventory.add(addItem);
+//		System.out.println(addItem + "was added.");
+//	}
+//} else if (choice.equalsIgnoreCase("edit")) {
+//	
+//}
+//}
