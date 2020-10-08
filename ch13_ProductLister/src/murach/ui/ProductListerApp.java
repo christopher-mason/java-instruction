@@ -12,19 +12,22 @@ public class ProductListerApp {
         final int DESC_WIDTH = 34;
         final int PRICE_WIDTH = 10;
         
+        final String COL_SEP = "   ";
+        
         // set up display string
         StringBuilder list = new StringBuilder();
         list.append(StringUtil.pad("Code", CODE_WIDTH));
+        list.append(COL_SEP);
         list.append(StringUtil.pad("Description", DESC_WIDTH));
+        list.append(COL_SEP);
         list.append(StringUtil.pad("Price", PRICE_WIDTH));        
         list.append("\n");
 
-        list.append(
-            StringUtil.pad("=========", CODE_WIDTH));
-        list.append(
-            StringUtil.pad("=================================", DESC_WIDTH));
-        list.append(
-            StringUtil.pad("=========", PRICE_WIDTH));        
+        list.append(StringUtil.pad("", CODE_WIDTH, "="));
+        list.append(COL_SEP);
+        list.append(StringUtil.pad("", DESC_WIDTH, "="));
+        list.append(COL_SEP);
+        list.append(StringUtil.pad("", PRICE_WIDTH, "="));        
         list.append("\n");        
         
         String choice = "y";
@@ -34,12 +37,9 @@ public class ProductListerApp {
 
             Product product = ProductDB.getProduct(productCode);
             
-            list.append(
-                StringUtil.pad(product.getCode(), CODE_WIDTH));
-            list.append(
-                StringUtil.pad(product.getDescription(), DESC_WIDTH));
-            list.append(
-                StringUtil.pad(product.getPriceFormatted(), PRICE_WIDTH));
+            list.append(StringUtil.pad(product.getCode(), CODE_WIDTH));
+            list.append(StringUtil.pad(product.getDescription(), DESC_WIDTH));
+            list.append(StringUtil.pad(product.getPriceFormatted(), PRICE_WIDTH));
             list.append("\n");            
 
             // see if the user wants to continue
