@@ -6,27 +6,34 @@ public class HTMLConverterApp {
 		System.out.println("HTML Converter");
 		System.out.println();
 		
-		String html = "<h1>Grocery List</h1>\n" + "<u1\n" +	"    <li>Eggs</li>\n" + "    <li>Milk</li>\n" +
+		String html = "<h1>Grocery List</h1>\n" + "<ul>\n" +	"    <li>Eggs</li>\n" + "    <li>Milk</li>\n" +
 				"    <li>Butter</li>\n" + "</ul>";
 		
 		System.out.println("INPUT\n" + html);
 		
+		// Remove spaces before tags
 		while (html.indexOf(" <") != -1) {
 			html = html.replace(" <",  "<");
 		}
 		
+		// replace list items with asterisks
 		html = html.replace("<li>",  "* ");
+		
+		StringBuilder htmlBldr = new StringBuilder(html);
 		
 		int beginTagIndex = 0;
 		while (beginTagIndex != -1) {
-			beginTagIndex = html.indexOf("<");
+			beginTagIndex = htmlBldr.indexOf("<");
 			if (beginTagIndex != -1) {
-				int endTagIndex = html.indexOf(">", beginTagIndex + 1);
-				String beforeTag = html.substring(0, beginTagIndex);
-				String afterTag = html.substring(endTagIndex + 1);
-				html = beforeTag + afterTag;
+				int endTagIndex = htmlBldr.indexOf(">", beginTagIndex + 1);
+				htmlBldr.delete(beginTagIndex, endTagIndex + 1);
+//				String beforeTag = html.substring(0, beginTagIndex);
+//				String afterTag = html.substring(endTagIndex + 1);
+//				html = beforeTag + afterTag;
 			}
 		}
+		
+		html = htmlBldr.toString();
 		
 		html = html.replace("\n\n", "\n");
 		
