@@ -1,42 +1,46 @@
 package mason.app;
-
 import java.util.Scanner;
 
 public class Console {
-
-    private static Scanner sc = new Scanner(System.in);
     
-    /**
-     * Outputs a blank line to the Console
-     */
-    public static void displayLine() {
-        System.out.println();
-    }
+	public static Scanner sc = new Scanner(System.in);
 
-    public static void displayLine(String s) {
-        System.out.println(s);
-    }
-    /**
-     * Prompts the user for a String
-     * 
-     * @param prompt The prompt to display before getting input
-     * @return the String entered by the user
-     */
     public static String getString(String prompt) {
         System.out.print(prompt);
-        String s = sc.nextLine();
+        String s = sc.next();  // read user entry
+        sc.nextLine();  // discard any other data entered on the line
         return s;
     }
 
     public static int getInt(String prompt) {
         int i = 0;
-        while (true) {
+        boolean isValid = false;
+        while (!isValid) {
             System.out.print(prompt);
-            try {
-                i = Integer.parseInt(sc.nextLine());
-                break;
-            } catch (NumberFormatException e) {
+            if (sc.hasNextInt()) {
+                i = sc.nextInt();
+                isValid = true;
+            } else {
                 System.out.println("Error! Invalid integer. Try again.");
+            }
+            sc.nextLine();  // discard any other data entered on the line
+        }
+        return i;
+    }
+
+    public static int getInt(String prompt, int min, int max) {
+        int i = 0;
+        boolean isValid = false;
+        while (!isValid) {
+            i = getInt(prompt);
+            if (i <= min) {
+                System.out.println(
+                        "Error! Number must be greater than " + min + ".");
+            } else if (i >= max) {
+                System.out.println(
+                        "Error! Number must be less than " + max + ".");
+            } else {
+                isValid = true;
             }
         }
         return i;
@@ -44,13 +48,33 @@ public class Console {
 
     public static double getDouble(String prompt) {
         double d = 0;
-        while (true) {
+        boolean isValid = false;
+        while (!isValid) {
             System.out.print(prompt);
-            try {
-                d = Double.parseDouble(sc.nextLine());
-                break;
-            } catch (NumberFormatException e) {
-                System.out.println("Error! Invalid decimal. Try again.");
+            if (sc.hasNextDouble()) {
+                d = sc.nextDouble();
+                isValid = true;
+            } else {
+                System.out.println("Error! Invalid number. Try again.");
+            }
+            sc.nextLine();  // discard any other data entered on the line
+        }
+        return d;
+    }
+
+    public static double getDouble(String prompt, double min, double max) {
+        double d = 0;
+        boolean isValid = false;
+        while (!isValid) {
+            d = getDouble(prompt);
+            if (d <= min) {
+                System.out.println(
+                        "Error! Number must be greater than " + min + ".");
+            } else if (d >= max) {
+                System.out.println(
+                        "Error! Number must be less than " + max + ".");
+            } else {
+                isValid = true;
             }
         }
         return d;
