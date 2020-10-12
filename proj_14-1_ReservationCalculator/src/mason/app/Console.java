@@ -1,4 +1,5 @@
 package mason.app;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Console {
@@ -78,5 +79,15 @@ public class Console {
             }
         }
         return d;
+    }
+    
+    public static LocalDate getLocalDate(String dateName) {
+    	int month = Console.getInt("Enter the " + dateName + " month (1-12): ", 0, 13);
+		int day = Console.getInt("Enter the " + dateName + " day (1-31): ", 0, 32);
+		int year = Console.getInt("Enter the " + dateName + " year: ", 2019, 2201);
+		
+		LocalDate date = LocalDate.of(year, month, day);
+		
+		return date;
     }
 }
