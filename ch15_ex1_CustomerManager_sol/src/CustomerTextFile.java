@@ -11,7 +11,7 @@ public final class CustomerTextFile implements DAO<Customer> {
     private final String FIELD_SEP = "\t";
 
     public CustomerTextFile() {
-        customersPath = Paths.get("customers.txt.");
+        customersPath = Paths.get("customers.txt");
         customersFile = customersPath.toFile();
         customers = this.getAll();
     }
@@ -25,8 +25,12 @@ public final class CustomerTextFile implements DAO<Customer> {
 
         customers = new ArrayList<>();
 
-        if (Files.exists(customersPath)) { 
-            try (BufferedReader in = new BufferedReader(new FileReader(customersFile))) {
+        if (Files.exists(customersPath)) { // prevent the FileNotFoundException
+            try (BufferedReader in
+                    = new BufferedReader(
+                            new FileReader(customersFile))) {
+                // read all customers stored in the file
+                // into the array list
                 String line = in.readLine();
                 while (line != null) {
                     String[] columns = line.split(FIELD_SEP);
@@ -34,7 +38,8 @@ public final class CustomerTextFile implements DAO<Customer> {
                     String lastName = columns[1];
                     String email = columns[2];
 
-                    Customer c = new Customer(firstName, lastName, email);
+                    Customer c = new Customer(
+                            firstName, lastName, email);
 
                     customers.add(c);
 
@@ -45,7 +50,6 @@ public final class CustomerTextFile implements DAO<Customer> {
                 return null;
             }
         }
-        
         return customers;
     }
 
@@ -85,8 +89,12 @@ public final class CustomerTextFile implements DAO<Customer> {
     }
 
     private boolean saveAll() {
-    	try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(customersFile)))) {
+        try (PrintWriter out = new PrintWriter(
+                new BufferedWriter(
+                        new FileWriter(customersFile)))) {
 
+            // write all customers in the array list
+            // to the file
             for (Customer c : customers) {
                 out.print(c.getFirstName() + FIELD_SEP);
                 out.print(c.getLastName() + FIELD_SEP);
