@@ -25,8 +25,6 @@ public class CountryApp {
 		
 		CountryIO countryIO = new CountryIO();
 		
-		//ArrayList<String> countries = new ArrayList<>();
-		
 		int command = 0;
 		while (command != COMMAND_EXIT) {
 			command = Console.getInt("Enter menu number: ");
@@ -46,9 +44,15 @@ public class CountryApp {
 				} else {
 					System.out.println("Error saving country.");
 				}
-			} else {
+			} else if (command == 3){
 				System.out.println("Bye");
+			}else if (command > 3) {
+				System.out.println("Unknown value. Enter valid number.");
 			}
+		}
+	}
+}
+			 
 			
 //			switch (command) {
 //			case COMMAND_LIST:
@@ -65,11 +69,7 @@ public class CountryApp {
 //				break;
 //			}
 				
-		}
-
 		
-	}
-}
 
 //	public static String createCountry(String csvStr) {
 //		String[] nameParts = csvStr.split(",");
