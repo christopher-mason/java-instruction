@@ -6,7 +6,7 @@ public class CustomerManagerApp {
     // declare class variables
     private static DAO<Customer> customerDAO = null;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchCustomerException {
         // display a welcome message
         System.out.println("Welcome to the Customer Manager\n");
 
@@ -94,7 +94,7 @@ public class CustomerManagerApp {
         System.out.println(firstName + " " + lastName + " has been added.\n");
     }
 
-    public static void deleteCustomer() {
+    public static void deleteCustomer() throws NoSuchCustomerException {
         String email = Console.getString("Enter email to delete: ");
 
         Customer c = null;
