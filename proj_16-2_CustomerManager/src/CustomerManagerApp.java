@@ -103,8 +103,10 @@ public class CustomerManagerApp {
         } catch (IOException e) {
         	System.out.println("Error deleting customer");
         	return;
+        } catch (NoSuchCustomerException e) {
+        	System.out.println(e.getMessage());
+        	return;
         }
-        System.out.println();
         if (c != null) {
         	try {
         		customerDAO.delete(c);

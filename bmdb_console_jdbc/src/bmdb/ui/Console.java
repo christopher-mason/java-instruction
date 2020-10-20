@@ -1,6 +1,9 @@
+package bmdb.ui;
+
 import java.util.Scanner;
 
 public class Console {
+    
     private static Scanner sc = new Scanner(System.in);
     
     public static String getLine(String prompt) {
@@ -35,15 +38,17 @@ public class Console {
     public static int getInt(String prompt, int min, int max) {
         int i = 0;
         boolean isValid = false;
-        while (!isValid){
-        	i = getInt(prompt);
-            if (i <= min)
-                System.out.println("Error! Number must be greater than " + min + ".");
-            else if (i >= max)
+        while (!isValid) {
+            i = getInt(prompt);
+            if (i <= min) {
                 System.out.println(
-                    "Error! Number must be less than " + max + ".");
-            else
+                        "Error! Number must be greater than " + min + ".");
+            } else if (i >= max) {
+                System.out.println(
+                        "Error! Number must be less than " + max + ".");
+            } else {
                 isValid = true;
+            }
         }
         return i;
     }
@@ -69,16 +74,16 @@ public class Console {
         boolean isValid = false;
         while (!isValid) {
             d = getDouble(prompt);
-            if (d <= min)
+            if (d <= min) {
                 System.out.println(
-                    "Error! Number must be greater than " + min + ".");
-            else if (d >= max)
+                        "Error! Number must be greater than " + min + ".");
+            } else if (d >= max) {
                 System.out.println(
-                    "Error! Number must be less than " + max + ".");
-            else
+                        "Error! Number must be less than " + max + ".");
+            } else {
                 isValid = true;
+            }
         }
         return d;
     }
-
 }
