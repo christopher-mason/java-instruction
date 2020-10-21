@@ -30,14 +30,14 @@ public class MovieDb {
 		
 		try  (Connection con = getConnection();
 				Statement stmt = con.createStatement();
-				ResultSet movies = stmt.executeQuery("SELECT * FROM Actor");) {
+				ResultSet movies = stmt.executeQuery("SELECT * FROM Movie");) {
 			
 			while (movies.next()) {
 				long id = movies.getLong("ID");
-				String title = movies.getString("FirstName");
-				String year = movies.getString("LastName");
-				String rating = movies.getString("Gender");
-				String director = movies.getString("BirthDate");
+				String title = movies.getString("Title");
+				String year = movies.getString("Year");
+				String rating = movies.getString("Rating");
+				String director = movies.getString("Director");
 				
 				Movie movie = new Movie(id, title, year, rating, director);
 				
@@ -60,10 +60,10 @@ public class MovieDb {
 			
 			if (movies.next()) {
 				long id = movies.getLong("ID");
-				String movieTitle = movies.getString("FirstName");
-				String year = movies.getString("LastName");
-				String rating = movies.getString("Gender");
-				String director = movies.getString("BirthDate");
+				String movieTitle = movies.getString("Title");
+				String year = movies.getString("Year");
+				String rating = movies.getString("Rating");
+				String director = movies.getString("Director");
 				
 				Movie movie = new Movie(id, movieTitle, year, rating, director);
 				
