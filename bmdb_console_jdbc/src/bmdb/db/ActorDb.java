@@ -146,4 +146,24 @@ public class ActorDb {
 				return false;
 			}
 		}
+		
+		public boolean update(Actor actor) {
+			String actorUpdate = "UPDATE actor SET FirstName = ?, LastName + ?, Gender = ?, BirthDate = ? WHERE ID = ?";
+			
+			try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(actorUpdate)) {
+				ps.setString(1, actor.getFirstName());
+				ps.setString(2, actor.getLastName());
+				ps.setString(3, actor.getGender());
+				ps.setString(4, actor.getBirthDate().toString());
+				ps.setLong(5,  actor.getId());
+				
+				ps.executeUpdate();
+				
+				return true;
+			} catch (SQLException e) {
+				System.err.println("Caught Exception. Msg: " + e);
+				return false;
+			}
+			
+		}
 }

@@ -15,6 +15,7 @@ public class BmdbApp {
 		System.out.println("la - List actors");
 		System.out.println("aa - Add Actor");
 		System.out.println("del - Delete Actor");
+		System.out.println("ua - Update Actor");
 		System.out.println("gabn - Get an actor by last name");
 		System.out.println("gabi - Get actor by ID");
 		System.out.println("exit - Exit application");
@@ -48,16 +49,31 @@ public class BmdbApp {
 				}
 				break;
 			case "del":
-				long actorId = Console.getInt("Enter Actor ID: ");
+				long actorId = Console.getInt("Enter Actor ID to delete: ");
 				
-				Actor deleteActor = actorDb.get(actorId);
-				
-				if (deleteActor == null) {
+				if (actorDb.delete(actorId)) {
 					System.out.println("Actor deleted successfully");
 				} else {
-					System.out.println("Error deleting acotr");
+					System.out.println("Error deleting actor");
 				}
 				break;
+			case "ua":
+				long updId = Console.getInt("ID: ");
+				String updFirstName = Console.getString("First name: ");
+				String updLastName = Console.getString("Last name: ");
+				String updGender = Console.getString("Gender: ");
+				String updBirthDateStr = Console.getString("Birthdate (YYYY-MM-DD): ");
+				LocalDate updBirthDate = LocalDate.parse(updBirthDateStr);
+				
+				
+				Actor updateActor = new Actor(updId, updFirstName, updLastName, updGender, updBirthDate);
+				
+				if (actorDb.update(updateActor)) {
+					System.out.println("Actor updated successfully");
+				} else {
+					System.out.println("Error updating actor");
+				}
+				break; 
 			case "gabn":
 				String lastName = Console.getString("Actor's last name: ");
 				Actor actor = actorDb.getActorByLastName(lastName);
