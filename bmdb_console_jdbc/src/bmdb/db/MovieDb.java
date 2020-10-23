@@ -12,7 +12,7 @@ import java.util.List;
 import bmdb.business.Actor;
 import bmdb.business.Movie;
 
-public class MovieDb {
+public class MovieDb {   
 	
 	private Connection getConnection() throws SQLException {
 		String dbURL = "jdbc:mysql://localhost:3306/bmdb?useSSL=false&allowPublicKeyRetrieval=true";
