@@ -2,6 +2,7 @@ package bmdb.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -75,6 +76,24 @@ public class MovieDb {
 		} catch (SQLException e) {
 			System.err.println("Caught exception. Msg: " + e);
 			return null;
+		}
+	}
+	
+	public boolean add(Movie movie) {
+		String actorINSERT = "INSERT INTO movie(FirstName, LastName, Gender, BirthDate) Values (?, ?, ?, ?)";
+		
+		try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(actorINSERT)) {
+			ps.setString(1, movie.getFirstName());
+			ps.setString(2, movie.getLastName());
+			ps.setString(3, movie.getGender());
+			ps.setString(4, movie.getBirthDate().toString());
+			
+			ps.executeUpdate();
+			
+			return true;
+		} catch (SQLException e) {
+			System.err.println("Caught Exception. Msg: " + e);
+			return false;
 		}
 	}
 }

@@ -33,20 +33,8 @@ public class BmdbApp {
 					System.out.println(actor);
 				}
 				break;
-			case "aa":	
-				String newFirstName = Console.getString("First name: ");
-				String newLastName = Console.getString("Last name: ");
-				String newGender = Console.getString("Gender: ");
-				String newBirthDateStr = Console.getString("Birthdate (YYYY-MM-DD): ");
-				LocalDate newBirthDate = LocalDate.parse(newBirthDateStr);
-				
-				Actor newActor = new Actor(0, newFirstName, newLastName, newGender, newBirthDate);
-				
-				if (actorDb.add(newActor)) {
-					System.out.println("Actor added successfully");
-				} else {
-					System.out.println("Error adding actor");
-				}
+			case "aa":
+				addActor(actorDb);
 				break;
 			case "del":
 				long actorId = Console.getInt("Enter Actor ID to delete: ");
@@ -58,21 +46,7 @@ public class BmdbApp {
 				}
 				break;
 			case "ua":
-				long updId = Console.getInt("ID: ");
-				String updFirstName = Console.getString("First name: ");
-				String updLastName = Console.getString("Last name: ");
-				String updGender = Console.getString("Gender: ");
-				String updBirthDateStr = Console.getString("Birthdate (YYYY-MM-DD): ");
-				LocalDate updBirthDate = LocalDate.parse(updBirthDateStr);
-				
-				
-				Actor updateActor = new Actor(updId, updFirstName, updLastName, updGender, updBirthDate);
-				
-				if (actorDb.update(updateActor)) {
-					System.out.println("Actor updated successfully");
-				} else {
-					System.out.println("Error updating actor");
-				}
+				updateActor(actorDb);
 				break; 
 			case "gabn":
 				String lastName = Console.getString("Actor's last name: ");
@@ -99,4 +73,37 @@ public class BmdbApp {
 		} System.out.println("Bye!");
 	}
 
+	private static void addActor(ActorDb actorDb) {
+		String firstName = Console.getString("First name: ");
+		String lastName = Console.getString("Last name: ");
+		String gender = Console.getString("Gender: ");
+		String birthDateStr = Console.getString("Birthdate (YYYY-MM-DD): ");
+		LocalDate birthDate = LocalDate.parse(birthDateStr);
+		
+		Actor actor = new Actor(0, firstName, lastName, gender, birthDate);
+		
+		if (actorDb.add(actor)) {
+			System.out.println("Actor added successfully");
+		} else {
+			System.out.println("Error adding actor");
+		}
+	}
+	
+	private static void updateActor(ActorDb actorDb) {
+		long id = Console.getInt("ID: ");
+		String firstName = Console.getString("First name: ");
+		String lastName = Console.getString("Last name: ");
+		String gender = Console.getString("Gender: ");
+		String birthDateStr = Console.getString("Birthdate (YYYY-MM-DD): ");
+		LocalDate birthDate = LocalDate.parse(birthDateStr);
+		
+		
+		Actor updateActor = new Actor(id, firstName, lastName, gender, birthDate);
+		
+		if (actorDb.update(updateActor)) {
+			System.out.println("Actor updated successfully");
+		} else {
+			System.out.println("Error updating actor");
+		}
+	}
 }
