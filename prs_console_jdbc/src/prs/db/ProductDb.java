@@ -134,7 +134,7 @@ public class ProductDb {
 	}
 	
 	public boolean update(Product product) {
-		String productUpdate = "UPDATE product SET VendorID = ?, PartNumber + ?, Name = ?, Price = ?, Unit = ?, PhotoPath = ?, WHERE ID = ?";
+		String productUpdate = "UPDATE product SET VendorID = ?, PartNumber = ?, Name = ?, Price = ?, Unit = ?, PhotoPath = ?, WHERE ID = ?";
 		
 		try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(productUpdate)) {
 			ps.setInt(1, product.getVendorId());
