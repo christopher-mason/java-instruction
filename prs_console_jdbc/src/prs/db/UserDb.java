@@ -97,6 +97,6 @@ public class UserDb {
 		} catch (SQLException e) {
 			System.err.println("Caught exception. Msg: " + e);
 			return null;
-		}
+		} 
 	}
 }
