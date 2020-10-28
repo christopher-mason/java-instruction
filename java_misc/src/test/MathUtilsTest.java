@@ -1,7 +1,7 @@
 package test;
 
 //import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Assertions; 
 import org.junit.jupiter.api.Test;
 
 import mason.utils.MathUtils;
@@ -42,5 +42,16 @@ class MathUtilsTest {
 	public void testPowerToZeroth() {
 		int zeroth = MathUtils.power(3, 0);
 		Assertions.assertEquals(1,  zeroth);
+	}
+	
+	@Test
+	public void testSum() {
+		int sum = MathUtils.sum(1, 2, 3);
+		Assertions.assertEquals(6, sum);
+	}
+	
+	@Test
+	public void testSumThrowsException() {
+		Assertions.assertThrows(IllegalArgumentException.class, () -> MathUtils.sum());
 	}
 }

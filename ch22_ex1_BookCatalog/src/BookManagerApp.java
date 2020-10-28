@@ -6,9 +6,10 @@ public class BookManagerApp {
         BookManager manager = new BookManager();
         
         //List<Book> booksByTitle = manager.getBooksByTitle("Java Programming");
-        List<Book> booksByTitle = manager.getBooks((Book b) -> { 
-        	return b.getTitle().equals("Java Programming"); 
-        });
+//        List<Book> booksByTitle = manager.getBooks((Book b) -> { 
+//        	return b.getTitle().equals("Java Programming"); 
+//        });
+        List<Book> booksByTitle = manager.getBooks(b -> b.getTitle().contains("Java"));
         System.out.println("\nBOOKS BY TITLE:");
         printList(booksByTitle);
         

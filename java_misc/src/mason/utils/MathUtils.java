@@ -11,7 +11,10 @@ public class MathUtils {
 	}
 
 	public static int sum(int... values) {
-		System.out.println("in sum with " + values.length + " values");
+		if (values.length == 0) {
+			throw new IllegalArgumentException("Must pass at least one value");
+		}
+	
 		int result = 0;
 		for (int value : values) {
 			result += value;
