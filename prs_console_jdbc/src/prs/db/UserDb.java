@@ -25,7 +25,7 @@ public class UserDb {
 		Connection connection = DriverManager.getConnection(dbURL, username, password);
 		
 		return connection;
-	}
+	} 
 	
 	private User getUserFromResultSet(ResultSet rs) throws SQLException {
 		int id = rs.getInt("ID");
