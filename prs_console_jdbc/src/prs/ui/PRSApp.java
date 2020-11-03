@@ -8,7 +8,7 @@ import prs.db.ProductDb;
 import prs.db.UserDb;
 import prs.db.VendorDb;
 
-public class PRSApp {
+public class PRSApp { 
 	
 	public static void main(String[] args) {
 		System.out.println("Welcome to the PRS App");
