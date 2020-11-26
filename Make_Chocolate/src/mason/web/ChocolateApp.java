@@ -10,6 +10,7 @@ public class ChocolateApp {
 		
 		String choice = "y";
 		while(choice.equalsIgnoreCase("y")) {
+			System.out.println("How many small bars of chocolate do you have? ");
 			
 		}
 		
