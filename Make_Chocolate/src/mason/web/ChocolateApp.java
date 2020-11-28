@@ -11,6 +11,19 @@ public class ChocolateApp {
 		String choice = "y";
 		while(choice.equalsIgnoreCase("y")) {
 			System.out.println("How many small bars of chocolate do you have? ");
+			int small = sc.nextInt();
+			System.out.println("How many big bars of chocolate do you have? ");
+			int big = sc.nextInt();
+			System.out.println("How many kilos of chocolate do you want to make? ");
+			int goal = sc.nextInt();
+			
+			int result = makeChocolate(small, big, goal);
+			System.out.println(result);
+			choice = sc.nextLine();
+			
+			System.out.println("Contine? (y/n)");
+			choice = sc.nextLine();
+			System.out.println("Bye!");
 			
 		}
 		
