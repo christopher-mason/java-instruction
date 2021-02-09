@@ -62,7 +62,7 @@ public class GuessNumberApp {
         @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);            
         int count = 1;
-        int guess; // moved this declaration out of the try
+        int guess; // moved this declaration out of the try statement
         
         while (true) {
 //        	System.out.print("Your guess: ");
